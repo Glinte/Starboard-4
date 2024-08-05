@@ -8,9 +8,6 @@ use crate::{
     client::bot::StarboardBot,
     core::{
         posroles::loop_update_posroles,
-        premium::{
-            expire::loop_expire_premium, patreon::patreon_loop, roles::loop_update_supporter_roles,
-        },
     },
     events::handle_event,
 };
@@ -40,9 +37,6 @@ pub async fn run(bot: StarboardBot) {
 
     // start background tasks
     tokio::spawn(loop_update_posroles(bot.clone()));
-    tokio::spawn(loop_expire_premium(bot.clone()));
-    tokio::spawn(patreon_loop(bot.clone()));
-    tokio::spawn(loop_update_supporter_roles(bot.clone()));
 
     // handle events
     let mut shards: Vec<_> = stream::create_range(

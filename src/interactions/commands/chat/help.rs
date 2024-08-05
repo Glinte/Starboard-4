@@ -65,27 +65,6 @@ impl Help {
                     "- Limited per-role starboard configuration\n",
                 ),
             ))
-            .field(EmbedFieldBuilder::new(
-                "Support Starboard",
-                concat_format!(
-                    "If you like Starboard and want to support it, you can do ";
-                    "so by [voting]({}) or " <- constants::VOTE_URL;
-                    "[leaving a review]({}) " <- constants::REVIEW_URL;
-                    "on Top.GG.\n\nIf you really want, you can also get Starboard Premium ";
-                    "by [becoming a patron]({})." <- constants::PATREON_URL;
-                ),
-            ))
-            .field(EmbedFieldBuilder::new(
-                "Starboard Premium",
-                concat_format!(
-                    "Premium works using a credit-based system. Each USD that you spend is ";
-                    "equivalent to 1 premium credit. Once you have 3 credits, you can redeem it ";
-                    "for 1 month of premium in any server.\n\n";
-                    "Use `/premium credits` to see your credits, and `/premium redeem` to redeem ";
-                    "premium in a server.\n\n";
-                    "To get premium, visit [patreon.com]({})." <- constants::PATREON_URL;
-                ),
-            ))
             .build();
 
         ctx.respond(ctx.build_resp().embeds([emb]).components(buttons()).build())
